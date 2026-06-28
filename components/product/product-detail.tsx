@@ -13,7 +13,7 @@ import { useCartStore } from "@/lib/store/cart-store";
 import { effectivePrice, discountPercent } from "@/lib/data/products";
 import { getBrandName } from "@/lib/data/brands";
 import { formatCLP, cn } from "@/lib/utils";
-import { whatsappLink } from "@/lib/site";
+import { whatsappLink, siteConfig } from "@/lib/site";
 
 export function ProductDetail({ product }: { product: Product }) {
   const addItem = useCartStore((s) => s.addItem);
@@ -171,7 +171,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </Button>
           <Button
             href={whatsappLink(
-              `Hola IRONHAUS 👋, me interesa el producto ${product.name} (SKU ${product.sku}).`,
+              `Hola ${siteConfig.owner.name} 👋, me interesa el producto ${product.name} (SKU ${product.sku}).`,
             )}
             variant="outline"
             size="lg"

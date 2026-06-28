@@ -1,6 +1,6 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { whatsappLink } from "@/lib/site";
+import { whatsappLink, siteConfig } from "@/lib/site";
 
 export function ContactCta() {
   return (
@@ -12,8 +12,9 @@ export function ContactCta() {
             ¿Listo para equipar tu gimnasio?
           </h2>
           <p className="mt-4 text-lg text-ink-200">
-            Cuéntanos tu proyecto y te enviamos una propuesta a medida. Atención
-            por WhatsApp, correo o teléfono — respondemos rápido.
+            Cuéntale tu proyecto a {siteConfig.owner.name} y te enviamos una
+            propuesta a medida. Atención personalizada por WhatsApp, correo o
+            teléfono — respondemos rápido.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="/cotizar" size="lg">
@@ -21,7 +22,9 @@ export function ContactCta() {
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
-              href={whatsappLink()}
+              href={whatsappLink(
+                `Hola ${siteConfig.owner.name} 👋, quiero equipar mi gimnasio.`,
+              )}
               variant="outline"
               size="lg"
               target="_blank"

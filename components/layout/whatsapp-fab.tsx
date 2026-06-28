@@ -27,11 +27,13 @@ export function WhatsAppFab() {
     <AnimatePresence>
       {visible && (
         <motion.a
-          href={whatsappLink()}
+          href={whatsappLink(
+            `Hola ${siteConfig.owner.name} 👋, vi el sitio de IRONHAUS y quiero información.`,
+          )}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Escríbenos por WhatsApp"
-          title={`WhatsApp ${siteConfig.phone}`}
+          aria-label={`Escríbele a ${siteConfig.owner.name} por WhatsApp`}
+          title={`Te responde ${siteConfig.owner.name} · WhatsApp ${siteConfig.phone}`}
           className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#25D366] px-4 py-3.5 font-semibold text-white shadow-[0_12px_40px_-8px_rgba(37,211,102,0.6)]"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -41,7 +43,9 @@ export function WhatsAppFab() {
         >
           <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-20" />
           <WhatsAppIcon className="h-6 w-6" />
-          <span className="hidden text-sm md:inline">¿Hablamos?</span>
+          <span className="hidden text-sm md:inline">
+            Habla con {siteConfig.owner.name}
+          </span>
         </motion.a>
       )}
     </AnimatePresence>

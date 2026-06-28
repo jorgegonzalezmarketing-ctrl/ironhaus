@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Check, Loader2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { whatsappLink } from "@/lib/site";
+import { whatsappLink, siteConfig } from "@/lib/site";
 
 const projectTypes = [
   "Gimnasio comercial",
@@ -56,13 +56,13 @@ export function QuoteForm() {
           ¡Solicitud enviada!
         </h3>
         <p className="mx-auto mt-3 max-w-md text-ink-300">
-          Gracias {form.nombre.split(" ")[0]}. Un asesor revisará tu proyecto y
-          te contactará dentro de las próximas 24 horas hábiles.
+          Gracias {form.nombre.split(" ")[0]}. {siteConfig.owner.name} revisará
+          tu proyecto y te contactará dentro de las próximas 24 horas hábiles.
         </p>
         <div className="mt-6 flex justify-center">
           <Button
             href={whatsappLink(
-              `Hola IRONHAUS 👋, acabo de enviar una cotización para un proyecto de tipo "${form.tipo}".`,
+              `Hola ${siteConfig.owner.name} 👋, acabo de enviar una cotización para un proyecto de tipo "${form.tipo}".`,
             )}
             variant="outline"
             target="_blank"

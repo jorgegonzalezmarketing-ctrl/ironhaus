@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { faqs } from "@/lib/data/faqs";
 import { ContactForm } from "@/components/contact-form";
+import { OwnerCard } from "@/components/owner-card";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -89,12 +90,15 @@ export default function ContactoPage() {
           </div>
         </div>
 
-        {/* Formulario */}
-        <div>
-          <h2 className="font-display mb-4 text-xl font-bold">
-            Envíanos un mensaje
-          </h2>
-          <ContactForm />
+        {/* Atención de Jenny + Formulario */}
+        <div className="space-y-6">
+          <OwnerCard />
+          <div>
+            <h2 className="font-display mb-4 text-xl font-bold">
+              O envíanos un mensaje
+            </h2>
+            <ContactForm />
+          </div>
         </div>
       </div>
 

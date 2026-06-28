@@ -20,6 +20,13 @@ export const siteConfig = {
   whatsappMessage:
     "Hola IRONHAUS 👋, quiero información sobre equipamiento de gimnasio.",
   email: "holajenny@ironhaus.cl",
+  // Persona/dueña que da la cara de la marca (atención personalizada).
+  owner: {
+    name: "Jenny",
+    fullName: "Jenny Fuentes",
+    role: "Fundadora & Asesora de equipamiento",
+    note: "Llevo más de 10 años ayudando a gimnasios, hoteles y deportistas a elegir el equipamiento correcto. Cuéntame tu proyecto y lo armamos juntos.",
+  },
   address: {
     street: "Av. Pedro de Valdivia 1234",
     district: "Providencia",

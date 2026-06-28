@@ -19,7 +19,7 @@ export const siteConfig = {
   whatsapp: "56912345678", // formato internacional sin "+", para wa.me
   whatsappMessage:
     "Hola IRONHAUS 👋, quiero información sobre equipamiento de gimnasio.",
-  email: "ventas@ironhaus.cl",
+  email: "holajenny@ironhaus.cl",
   address: {
     street: "Av. Pedro de Valdivia 1234",
     district: "Providencia",

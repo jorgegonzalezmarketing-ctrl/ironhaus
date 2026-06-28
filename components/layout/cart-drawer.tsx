@@ -73,11 +73,11 @@ export function CartDrawer() {
                         <Link
                           href={`/productos/${item.slug}`}
                           onClick={close}
-                          className="line-clamp-2 text-sm font-medium hover:text-brand-400"
+                          className="line-clamp-2 text-sm font-medium hover:text-brand-600"
                         >
                           {item.name}
                         </Link>
-                        <span className="mt-0.5 text-sm font-semibold text-brand-400">
+                        <span className="mt-0.5 text-sm font-semibold text-brand-600">
                           {formatCLP(item.price)}
                         </span>
                         <div className="mt-2 flex items-center justify-between">
@@ -107,7 +107,7 @@ export function CartDrawer() {
                           <button
                             onClick={() => removeItem(item.productId)}
                             aria-label="Eliminar del carrito"
-                            className="grid h-7 w-7 place-items-center rounded-full text-ink-400 hover:bg-surface-2 hover:text-brand-400"
+                            className="grid h-7 w-7 place-items-center rounded-full text-ink-400 hover:bg-surface-2 hover:text-brand-600"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>

@@ -176,7 +176,7 @@ export function CatalogView({
       {activeFilters > 0 && (
         <button
           onClick={clearAll}
-          className="text-sm font-medium text-brand-400 hover:text-brand-300"
+          className="text-sm font-medium text-brand-600 hover:text-brand-300"
         >
           Limpiar filtros ({activeFilters})
         </button>
@@ -245,7 +245,7 @@ export function CatalogView({
             </p>
             <button
               onClick={clearAll}
-              className="mt-3 text-sm font-medium text-brand-400"
+              className="mt-3 text-sm font-medium text-brand-600"
             >
               Limpiar filtros
             </button>

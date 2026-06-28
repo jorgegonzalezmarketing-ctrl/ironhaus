@@ -38,7 +38,7 @@ export function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-400 backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600 backdrop-blur"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />
             Equipamiento profesional de gimnasio · Chile
@@ -115,7 +115,7 @@ export function Hero() {
             { n: "24/7", l: "Uso comercial" },
           ].map((m) => (
             <div key={m.l} className="bg-surface px-5 py-6 text-center">
-              <p className="font-display text-2xl font-extrabold text-brand-400 md:text-3xl">
+              <p className="font-display text-2xl font-extrabold text-brand-600 md:text-3xl">
                 {m.n}
               </p>
               <p className="mt-1 text-xs text-ink-400">{m.l}</p>

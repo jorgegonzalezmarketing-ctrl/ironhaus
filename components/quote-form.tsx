@@ -49,7 +49,7 @@ export function QuoteForm() {
         animate={{ opacity: 1, y: 0 }}
         className="rounded-2xl border border-border bg-surface p-8 text-center"
       >
-        <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-500/15 text-emerald-400">
+        <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-500/15 text-emerald-600">
           <Check className="h-8 w-8" />
         </div>
         <h3 className="font-display mt-5 text-2xl font-bold">
@@ -147,7 +147,7 @@ function Field({
   return (
     <label className="block">
       <span className="mb-1.5 block text-sm font-medium text-ink-200">
-        {label} {required && <span className="text-brand-400">*</span>}
+        {label} {required && <span className="text-brand-600">*</span>}
       </span>
       <input
         type={type}

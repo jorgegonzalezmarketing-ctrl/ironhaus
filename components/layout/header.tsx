@@ -156,7 +156,7 @@ export function Header() {
               <Link
                 key={c.slug}
                 href={`/catalogo/${c.slug}`}
-                className="px-3 py-2.5 text-sm font-medium text-muted transition-colors hover:text-brand-400"
+                className="px-3 py-2.5 text-sm font-medium text-muted transition-colors hover:text-brand-600"
               >
                 {c.shortName}
               </Link>
@@ -167,8 +167,8 @@ export function Header() {
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  "px-3 py-2.5 text-sm font-semibold transition-colors hover:text-brand-400",
-                  pathname === l.href ? "text-brand-400" : "text-foreground",
+                  "px-3 py-2.5 text-sm font-semibold transition-colors hover:text-brand-600",
+                  pathname === l.href ? "text-brand-600" : "text-foreground",
                 )}
               >
                 {l.label}

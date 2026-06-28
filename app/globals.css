@@ -25,32 +25,35 @@
   --color-brand-800: #9a200e;
   --color-brand-900: #7c1d0f;
 
-  /* Tinta / superficies oscuras (carbón) */
-  --color-ink-50: #f6f7f8;
-  --color-ink-100: #eceef0;
-  --color-ink-200: #d4d8dd;
-  --color-ink-300: #aeb5bd;
-  --color-ink-400: #828c97;
-  --color-ink-500: #647079;
-  --color-ink-600: #4f5860;
-  --color-ink-700: #41484e;
-  --color-ink-800: #2a2e33;
-  --color-ink-850: #1d2024;
-  --color-ink-900: #15171a;
-  --color-ink-950: #0b0c0e;
+  /* Neutros cálidos (arena/greige). Escala invertida en luminancia:
+     ink-50 = más oscuro · ink-950 = más claro. Así el uso existente
+     (bg-ink-950 para superficies, text-ink-300/400 para texto suave)
+     produce un tema CLARO y cálido sin tocar los componentes. */
+  --color-ink-50: #1c1813;
+  --color-ink-100: #2b2722;
+  --color-ink-200: #3d352c;
+  --color-ink-300: #574c40;
+  --color-ink-400: #6f6253;
+  --color-ink-500: #93826b;
+  --color-ink-600: #b8a88f;
+  --color-ink-700: #d8cbb8;
+  --color-ink-800: #eae1d4;
+  --color-ink-850: #f0e9de;
+  --color-ink-900: #f5efe6;
+  --color-ink-950: #fcfaf6;
 
-  /* Roles semánticos */
-  --color-background: #0b0c0e;
-  --color-surface: #15171a;
-  --color-surface-2: #1d2024;
-  --color-foreground: #f6f7f8;
-  --color-muted: #aeb5bd;
-  --color-border: #2a2e33;
+  /* Roles semánticos (tema claro cálido) */
+  --color-background: #f6efe4;
+  --color-surface: #fffdf9;
+  --color-surface-2: #f2eae0;
+  --color-foreground: #2b2722;
+  --color-muted: #6f6253;
+  --color-border: #e7ddce;
 
-  /* Sombra de marca */
-  --shadow-brand: 0 10px 40px -12px rgba(249, 83, 31, 0.45);
-  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
-    0 20px 40px -24px rgba(0, 0, 0, 0.8);
+  /* Sombras */
+  --shadow-brand: 0 10px 40px -12px rgba(249, 83, 31, 0.35);
+  --shadow-card: 0 1px 2px 0 rgba(43, 39, 34, 0.04),
+    0 20px 40px -28px rgba(43, 39, 34, 0.25);
 
   /* Animaciones */
   --animate-marquee: marquee 40s linear infinite;
@@ -67,7 +70,7 @@
 
 /* ===== Base ===== */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -149,7 +152,7 @@ body {
 /* Patrón de rejilla técnica para fondos */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(43, 39, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(43, 39, 34, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
 }

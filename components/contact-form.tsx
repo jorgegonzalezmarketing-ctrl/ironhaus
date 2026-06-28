@@ -24,7 +24,7 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-8 text-center">
-        <div className="grid h-14 w-14 place-items-center rounded-full bg-emerald-500/15 text-emerald-400">
+        <div className="grid h-14 w-14 place-items-center rounded-full bg-emerald-500/15 text-emerald-600">
           <Check className="h-7 w-7" />
         </div>
         <p className="font-semibold">¡Mensaje enviado!</p>
@@ -40,7 +40,7 @@ export function ContactForm() {
     >
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink-200">
-          Nombre <span className="text-brand-400">*</span>
+          Nombre <span className="text-brand-600">*</span>
         </span>
         <input
           required
@@ -51,7 +51,7 @@ export function ContactForm() {
       </label>
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink-200">
-          Correo <span className="text-brand-400">*</span>
+          Correo <span className="text-brand-600">*</span>
         </span>
         <input
           required
@@ -63,7 +63,7 @@ export function ContactForm() {
       </label>
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink-200">
-          Mensaje <span className="text-brand-400">*</span>
+          Mensaje <span className="text-brand-600">*</span>
         </span>
         <textarea
           required

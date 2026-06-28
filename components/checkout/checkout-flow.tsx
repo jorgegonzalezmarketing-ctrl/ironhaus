@@ -95,7 +95,7 @@ export function CheckoutFlow() {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-500/15 text-emerald-400"
+          className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-500/15 text-emerald-600"
         >
           <Check className="h-10 w-10" />
         </motion.div>
@@ -104,7 +104,7 @@ export function CheckoutFlow() {
         </h1>
         <p className="mt-3 text-ink-300">
           Gracias por tu compra. Tu número de pedido es{" "}
-          <span className="font-mono font-bold text-brand-400">{orderCode}</span>
+          <span className="font-mono font-bold text-brand-600">{orderCode}</span>
           . Te enviamos los detalles a{" "}
           <span className="font-medium">{form.email || "tu correo"}</span>.
         </p>
@@ -155,7 +155,7 @@ export function CheckoutFlow() {
                   i < step
                     ? "bg-brand-500 text-white"
                     : i === step
-                      ? "border-2 border-brand-500 text-brand-400"
+                      ? "border-2 border-brand-500 text-brand-600"
                       : "border border-border text-ink-500",
                 )}
               >
@@ -380,7 +380,7 @@ export function CheckoutFlow() {
             </div>
             <div className="mt-3 flex justify-between border-t border-border pt-3 text-base font-bold">
               <dt>Total</dt>
-              <dd className="font-display text-brand-400">{formatCLP(total)}</dd>
+              <dd className="font-display text-brand-600">{formatCLP(total)}</dd>
             </div>
           </dl>
           <p className="mt-3 text-xs text-ink-500">IVA incluido.</p>
@@ -408,7 +408,7 @@ function Field({
   return (
     <label className="block">
       <span className="mb-1.5 block text-sm font-medium text-ink-200">
-        {label} {required && <span className="text-brand-400">*</span>}
+        {label} {required && <span className="text-brand-600">*</span>}
       </span>
       <input
         type={type}

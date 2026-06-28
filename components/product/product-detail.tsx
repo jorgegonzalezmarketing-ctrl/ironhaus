@@ -81,7 +81,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="flex items-center gap-3">
           <Link
             href={`/catalogo?marca=${product.brand}`}
-            className="text-sm font-semibold uppercase tracking-wider text-brand-400"
+            className="text-sm font-semibold uppercase tracking-wider text-brand-600"
           >
             {getBrandName(product.brand)}
           </Link>
@@ -118,11 +118,11 @@ export function ProductDetail({ product }: { product: Product }) {
           {soldOut ? (
             <span className="text-ink-400">Sin stock — consúltanos disponibilidad</span>
           ) : product.stock <= 4 ? (
-            <span className="font-medium text-amber-400">
+            <span className="font-medium text-amber-600">
               ¡Solo quedan {product.stock} unidades!
             </span>
           ) : (
-            <span className="text-emerald-400">● En stock — despacho inmediato</span>
+            <span className="text-emerald-600">● En stock — despacho inmediato</span>
           )}
         </p>
 
@@ -217,7 +217,7 @@ export function ProductDetail({ product }: { product: Product }) {
               key={h}
               className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-sm"
             >
-              <Check className="h-3.5 w-3.5 text-brand-400" />
+              <Check className="h-3.5 w-3.5 text-brand-600" />
               {h}
             </li>
           ))}

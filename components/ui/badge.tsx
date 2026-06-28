@@ -10,11 +10,11 @@ const labels: Record<ProductBadge, string> = {
 };
 
 const styles: Record<ProductBadge, string> = {
-  nuevo: "bg-emerald-500/15 text-emerald-400 ring-emerald-500/30",
-  oferta: "bg-brand-500/15 text-brand-400 ring-brand-500/30",
-  "mas-vendido": "bg-amber-500/15 text-amber-400 ring-amber-500/30",
-  premium: "bg-violet-500/15 text-violet-300 ring-violet-500/30",
-  agotado: "bg-ink-700/60 text-ink-300 ring-ink-600",
+  nuevo: "bg-emerald-500/15 text-emerald-700 ring-emerald-500/30",
+  oferta: "bg-brand-500/15 text-brand-700 ring-brand-500/30",
+  "mas-vendido": "bg-amber-500/20 text-amber-700 ring-amber-500/30",
+  premium: "bg-violet-500/15 text-violet-700 ring-violet-500/30",
+  agotado: "bg-ink-700/60 text-ink-200 ring-ink-600",
 };
 
 export function Badge({

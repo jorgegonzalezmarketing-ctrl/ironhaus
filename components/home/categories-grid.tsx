@@ -32,7 +32,7 @@ export function CategoriesGrid() {
               >
                 <CategoryIcon name={c.icon} className="h-6 w-6" />
               </span>
-              <ArrowUpRight className="h-5 w-5 text-ink-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-400" />
+              <ArrowUpRight className="h-5 w-5 text-ink-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-600" />
             </div>
             <div className="relative mt-8">
               <h3 className="font-display text-lg font-bold">{c.shortName}</h3>

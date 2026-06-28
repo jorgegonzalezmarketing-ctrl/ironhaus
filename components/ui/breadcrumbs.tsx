@@ -14,7 +14,7 @@ export function Breadcrumbs({
           return (
             <li key={i} className="flex items-center gap-1.5">
               {item.href && !last ? (
-                <Link href={item.href} className="hover:text-brand-400">
+                <Link href={item.href} className="hover:text-brand-600">
                   {item.name}
                 </Link>
               ) : (

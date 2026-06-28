@@ -10,7 +10,7 @@ const variants: Record<Variant, string> = {
     "bg-brand-500 text-white hover:bg-brand-600 shadow-[0_8px_30px_-8px_rgba(249,83,31,0.6)]",
   secondary: "bg-surface-2 text-foreground hover:bg-ink-700 border border-border",
   outline:
-    "border border-ink-600 text-foreground hover:border-brand-500 hover:text-brand-400 bg-transparent",
+    "border border-ink-600 text-foreground hover:border-brand-500 hover:text-brand-600 bg-transparent",
   ghost: "text-foreground hover:bg-surface-2",
 };
 

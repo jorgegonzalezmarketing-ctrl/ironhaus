@@ -16,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
   const lowStock = product.stock > 0 && product.stock <= 4;
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-ink-600 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.9)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-brand-300 hover:shadow-[0_24px_50px_-28px_rgba(43,39,34,0.35)]">
       {/* Imagen + overlays */}
       <div className="relative">
         <Link href={href} aria-label={product.name}>
@@ -59,7 +59,7 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         <Link href={href} className="flex-1">
-          <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-foreground transition-colors group-hover:text-brand-400">
+          <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-foreground transition-colors group-hover:text-brand-600">
             {product.name}
           </h3>
         </Link>
@@ -78,11 +78,11 @@ export function ProductCard({ product }: { product: Product }) {
 
         {/* Stock */}
         {lowStock ? (
-          <span className="text-xs font-medium text-amber-400">
+          <span className="text-xs font-medium text-amber-600">
             ¡Últimas {product.stock} unidades!
           </span>
         ) : product.stock > 0 ? (
-          <span className="text-xs text-emerald-400">En stock</span>
+          <span className="text-xs text-emerald-600">En stock</span>
         ) : (
           <span className="text-xs text-ink-400">Agotado</span>
         )}

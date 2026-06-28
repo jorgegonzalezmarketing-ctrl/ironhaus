@@ -23,7 +23,7 @@ export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
               <span className="font-medium">{faq.question}</span>
               <Plus
                 className={cn(
-                  "h-5 w-5 shrink-0 text-brand-400 transition-transform duration-300",
+                  "h-5 w-5 shrink-0 text-brand-600 transition-transform duration-300",
                   isOpen && "rotate-45",
                 )}
               />

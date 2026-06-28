@@ -48,7 +48,7 @@ export function EquipService() {
               key={label}
               className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-5 text-center"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-500/10 text-brand-400">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-500/10 text-brand-600">
                 <Icon className="h-6 w-6" />
               </span>
               <span className="text-sm font-medium">{label}</span>

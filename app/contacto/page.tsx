@@ -51,7 +51,7 @@ export default function ContactoPage() {
             <InfoCard icon={Phone} title="Teléfono">
               <a
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                className="hover:text-brand-400"
+                className="hover:text-brand-600"
               >
                 {siteConfig.phone}
               </a>
@@ -59,7 +59,7 @@ export default function ContactoPage() {
             <InfoCard icon={Mail} title="Correo">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="hover:text-brand-400"
+                className="hover:text-brand-600"
               >
                 {siteConfig.email}
               </a>
@@ -126,7 +126,7 @@ function InfoCard({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-surface p-4">
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-500/10 text-brand-400">
+      <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-500/10 text-brand-600">
         <Icon className="h-5 w-5" />
       </span>
       <h3 className="mt-3 text-sm font-semibold">{title}</h3>

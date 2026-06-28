@@ -27,7 +27,7 @@ export default function CotizarPage() {
       />
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <div>
-          <span className="text-sm font-semibold uppercase tracking-wider text-brand-400">
+          <span className="text-sm font-semibold uppercase tracking-wider text-brand-600">
             Cotización para empresas
           </span>
           <h1 className="font-display mt-2 text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -40,7 +40,7 @@ export default function CotizarPage() {
           <ul className="mt-8 space-y-3">
             {benefits.map((b) => (
               <li key={b} className="flex items-center gap-3 text-ink-200">
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-400">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-600">
                   <Check className="h-3.5 w-3.5" />
                 </span>
                 {b}

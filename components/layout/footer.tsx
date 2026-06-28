@@ -52,21 +52,21 @@ export function Footer() {
             <a
               href={siteConfig.social.instagram}
               aria-label="Instagram"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-400"
+              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
             >
               <InstagramIcon className="h-4 w-4" />
             </a>
             <a
               href={siteConfig.social.facebook}
               aria-label="Facebook"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-400"
+              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
             >
               <FacebookIcon className="h-4 w-4" />
             </a>
             <a
               href={siteConfig.social.youtube}
               aria-label="YouTube"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-400"
+              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
             >
               <YoutubeIcon className="h-4 w-4" />
             </a>
@@ -81,7 +81,7 @@ export function Footer() {
               <li key={c.slug}>
                 <Link
                   href={`/catalogo/${c.slug}`}
-                  className="hover:text-brand-400"
+                  className="hover:text-brand-600"
                 >
                   {c.name}
                 </Link>
@@ -95,27 +95,27 @@ export function Footer() {
           <h3 className="mb-4 font-semibold">Empresa</h3>
           <ul className="space-y-2.5 text-sm text-ink-400">
             <li>
-              <Link href="/equipamos-tu-gimnasio" className="hover:text-brand-400">
+              <Link href="/equipamos-tu-gimnasio" className="hover:text-brand-600">
                 Equipamos tu gimnasio
               </Link>
             </li>
             <li>
-              <Link href="/cotizar" className="hover:text-brand-400">
+              <Link href="/cotizar" className="hover:text-brand-600">
                 Cotización para empresas
               </Link>
             </li>
             <li>
-              <Link href="/catalogo" className="hover:text-brand-400">
+              <Link href="/catalogo" className="hover:text-brand-600">
                 Catálogo completo
               </Link>
             </li>
             <li>
-              <Link href="/contacto" className="hover:text-brand-400">
+              <Link href="/contacto" className="hover:text-brand-600">
                 Contacto
               </Link>
             </li>
             <li>
-              <Link href="/contacto#faq" className="hover:text-brand-400">
+              <Link href="/contacto#faq" className="hover:text-brand-600">
                 Preguntas frecuentes
               </Link>
             </li>
@@ -137,14 +137,14 @@ export function Footer() {
               <Phone className="h-4 w-4 shrink-0 text-brand-500" />
               <a
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                className="hover:text-brand-400"
+                className="hover:text-brand-600"
               >
                 {siteConfig.phone}
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-brand-500" />
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-400">
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-600">
                 {siteConfig.email}
               </a>
             </li>

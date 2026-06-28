@@ -38,7 +38,7 @@ export default function EquipamosPage() {
             ]}
           />
           <div className="mt-6 max-w-3xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand-400">
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand-600">
               Servicio integral · Llave en mano
             </span>
             <h1 className="font-display mt-3 text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -81,7 +81,7 @@ export default function EquipamosPage() {
                 key={item}
                 className="flex items-start gap-3 rounded-xl border border-border bg-surface p-4 text-sm"
               >
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-400">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-600">
                   <Check className="h-3 w-3" />
                 </span>
                 {item}

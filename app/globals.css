@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   IRONHAUS — Design Tokens (Tailwind v4 @theme)
+   Paleta: carbón profundo + naranja industrial + acero.
+   Justificación: el negro transmite premium/autoridad (Technogym, Rogue),
+   el naranja es CTA de alta conversión y energía deportiva, los grises
+   acero dan textura "máquina". Contrastes AA/AAA para accesibilidad.
+   ========================================================================= */
+
+@theme {
+  /* Tipografía */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-inter), sans-serif;
+
+  /* Marca — naranja industrial */
+  --color-brand-50: #fff4ed;
+  --color-brand-100: #ffe6d5;
+  --color-brand-200: #fec6aa;
+  --color-brand-300: #fd9d74;
+  --color-brand-400: #fb6a3c;
+  --color-brand-500: #f9531f; /* principal */
+  --color-brand-600: #ea3606;
+  --color-brand-700: #c22507;
+  --color-brand-800: #9a200e;
+  --color-brand-900: #7c1d0f;
+
+  /* Tinta / superficies oscuras (carbón) */
+  --color-ink-50: #f6f7f8;
+  --color-ink-100: #eceef0;
+  --color-ink-200: #d4d8dd;
+  --color-ink-300: #aeb5bd;
+  --color-ink-400: #828c97;
+  --color-ink-500: #647079;
+  --color-ink-600: #4f5860;
+  --color-ink-700: #41484e;
+  --color-ink-800: #2a2e33;
+  --color-ink-850: #1d2024;
+  --color-ink-900: #15171a;
+  --color-ink-950: #0b0c0e;
+
+  /* Roles semánticos */
+  --color-background: #0b0c0e;
+  --color-surface: #15171a;
+  --color-surface-2: #1d2024;
+  --color-foreground: #f6f7f8;
+  --color-muted: #aeb5bd;
+  --color-border: #2a2e33;
+
+  /* Sombra de marca */
+  --shadow-brand: 0 10px 40px -12px rgba(249, 83, 31, 0.45);
+  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 40px -24px rgba(0, 0, 0, 0.8);
+
+  /* Animaciones */
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Base ===== */
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem; /* compensa header sticky en anclas */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tipografía display: títulos contundentes */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-600);
+}
+
+/* Foco accesible y visible */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--color-brand-500);
+  color: #fff;
+}
+
+/* Respeta usuarios con menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilidad: degradado de marca para textos/realces */
+.text-gradient-brand {
+  background: linear-gradient(
+    100deg,
+    var(--color-brand-400),
+    var(--color-brand-600)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Patrón de rejilla técnica para fondos */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}

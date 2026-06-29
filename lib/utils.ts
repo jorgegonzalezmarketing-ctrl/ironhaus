@@ -18,5 +18,5 @@ export function formatCLP(amount: number): string {
 /** Genera un código de pedido legible. */
 export function generateOrderCode(): string {
   const n = Math.floor(100000 + Math.random() * 900000);
-  return `IH-${n}`;
+  return `CF-${n}`;
 }

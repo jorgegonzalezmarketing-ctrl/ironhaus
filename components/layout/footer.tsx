@@ -38,7 +38,7 @@ export function Footer() {
         <div className="md:col-span-1">
           <Link href="/" className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-500 font-display text-lg font-black text-white">
-              IH
+              CF
             </span>
             <span className="font-display text-xl font-extrabold">
               {siteConfig.name}
@@ -49,27 +49,39 @@ export function Footer() {
             en todo Chile.
           </p>
           <div className="mt-5 flex gap-2">
-            <a
-              href={siteConfig.social.instagram}
-              aria-label="Instagram"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
-            >
-              <InstagramIcon className="h-4 w-4" />
-            </a>
-            <a
-              href={siteConfig.social.facebook}
-              aria-label="Facebook"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
-            >
-              <FacebookIcon className="h-4 w-4" />
-            </a>
-            <a
-              href={siteConfig.social.youtube}
-              aria-label="YouTube"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
-            >
-              <YoutubeIcon className="h-4 w-4" />
-            </a>
+            {siteConfig.social.instagram && (
+              <a
+                href={siteConfig.social.instagram}
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
+              >
+                <InstagramIcon className="h-4 w-4" />
+              </a>
+            )}
+            {siteConfig.social.facebook && (
+              <a
+                href={siteConfig.social.facebook}
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
+              >
+                <FacebookIcon className="h-4 w-4" />
+              </a>
+            )}
+            {siteConfig.social.youtube && (
+              <a
+                href={siteConfig.social.youtube}
+                aria-label="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border hover:border-brand-500 hover:text-brand-600"
+              >
+                <YoutubeIcon className="h-4 w-4" />
+              </a>
+            )}
           </div>
         </div>
 

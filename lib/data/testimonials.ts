@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     role: "Gerente de Operaciones",
     company: "Hotel Andino, Las Condes",
     quote:
-      "Necesitábamos un gimnasio para huéspedes que aguantara uso 24/7. IRONHAUS entregó, instaló y capacitó a nuestro equipo. Cero problemas desde entonces.",
+      "Necesitábamos un gimnasio para huéspedes que aguantara uso 24/7. Crea Fitness entregó, instaló y capacitó a nuestro equipo. Cero problemas desde entonces.",
     rating: 5,
   },
   {

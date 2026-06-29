@@ -72,7 +72,7 @@ export default function EquipamosPage() {
             </h2>
             <p className="mt-4 text-ink-300">
               Coordinar múltiples proveedores cuesta tiempo y dinero. Con
-              IRONHAUS tienes un único responsable para todo el proyecto.
+              Crea Fitness tienes un único responsable para todo el proyecto.
             </p>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">

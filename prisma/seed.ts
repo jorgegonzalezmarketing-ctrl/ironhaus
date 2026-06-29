@@ -11,8 +11,8 @@ import { products } from "../lib/data/products";
 
 const prisma = new PrismaClient();
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "holajenny@ironhaus.cl";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "ironhaus2026";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "hola@creafitness.cl";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "creafitness2026";
 const ADMIN_NAME = process.env.ADMIN_NAME ?? "Jenny";
 
 async function main() {

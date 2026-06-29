@@ -9,7 +9,7 @@ export function Testimonials() {
       <SectionHeading
         eyebrow="Testimonios"
         title="Confían en nosotros"
-        description="Gimnasios, hoteles, box y atletas que ya entrenan con equipamiento IRONHAUS."
+        description="Gimnasios, hoteles, box y atletas que ya entrenan con equipamiento Crea Fitness."
         center
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

@@ -28,7 +28,7 @@ export function AdminSidebar({ name }: { name: string }) {
     <aside className="flex shrink-0 flex-col gap-1 border-b border-border bg-surface p-4 md:h-dvh md:w-60 md:border-b-0 md:border-r">
       <div className="mb-4 flex items-center gap-2 px-2">
         <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-500 font-display text-sm font-black text-white">
-          IH
+          CF
         </span>
         <div className="leading-tight">
           <p className="font-display text-sm font-bold">{siteConfig.name}</p>

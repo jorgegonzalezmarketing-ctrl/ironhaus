@@ -73,7 +73,7 @@ export const useCartStore = create<CartState>()(
       close: () => set({ isOpen: false }),
       toggle: () => set((s) => ({ isOpen: !s.isOpen })),
     }),
-    { name: "ironhaus-cart", partialize: (s) => ({ items: s.items }) },
+    { name: "creafitness-cart", partialize: (s) => ({ items: s.items }) },
   ),
 );
 

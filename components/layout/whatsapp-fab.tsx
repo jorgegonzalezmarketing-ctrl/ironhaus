@@ -28,7 +28,7 @@ export function WhatsAppFab() {
       {visible && (
         <motion.a
           href={whatsappLink(
-            `Hola ${siteConfig.owner.name} 👋, vi el sitio de IRONHAUS y quiero información.`,
+            `Hola ${siteConfig.owner.name} 👋, vi el sitio de ${siteConfig.name} y quiero información.`,
           )}
           target="_blank"
           rel="noopener noreferrer"

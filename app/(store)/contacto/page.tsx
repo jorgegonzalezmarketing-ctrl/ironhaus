@@ -80,7 +80,7 @@ export default function ContactoPage() {
           <div className="overflow-hidden rounded-2xl border border-border">
             <iframe
               src={mapSrc}
-              title="Ubicación IRONHAUS"
+              title={`Ubicación ${siteConfig.name}`}
               width="100%"
               height="320"
               loading="lazy"

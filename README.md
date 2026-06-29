@@ -1,11 +1,11 @@
-# IRONHAUS — eCommerce Premium de Maquinaria de Gimnasio
+# Crea Fitness — eCommerce de Maquinaria de Gimnasio
 
-Demo comercial de eCommerce premium para venta de maquinaria de gimnasio en
-Chile, construida como pieza de venta para ofrecer desarrollo web profesional.
-Diseñada para sentirse como un producto de agencia, **no** una plantilla.
+eCommerce premium para **Crea Fitness** (@fitness.crea), venta de maquinaria de
+gimnasio en Chile. Tienda online + panel de administración. Next.js 16 +
+PostgreSQL (Supabase). Diseñado como producto de agencia, no plantilla.
 
-> **Marca ficticia.** "IRONHAUS" es un nombre inventado para la demo. Cambiarlo
-> es trivial: edita `lib/site.ts` (`siteConfig.name`).
+> Toda la identidad de marca (nombre, contacto, redes) se centraliza en
+> `lib/site.ts` (`siteConfig`).
 
 ---
 
@@ -89,4 +89,4 @@ hooks/                   useMounted (hidratación segura)
 
 ---
 
-© IRONHAUS (demo). Desarrollado como muestra comercial.
+© Crea Fitness (demo). Desarrollado como muestra comercial.

@@ -20,7 +20,7 @@ export default async function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
           <span className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-brand-500 font-display text-xl font-black text-white">
-            IH
+            CF
           </span>
           <h1 className="font-display mt-4 text-2xl font-extrabold">
             {siteConfig.name} · Panel

@@ -18,7 +18,7 @@ export function LoginForm() {
           type="email"
           required
           autoComplete="username"
-          placeholder="holajenny@ironhaus.cl"
+          placeholder="hola@creafitness.cl"
           className="h-11 w-full rounded-lg border border-border bg-ink-950 px-3 text-sm outline-none focus:border-brand-500"
         />
       </label>

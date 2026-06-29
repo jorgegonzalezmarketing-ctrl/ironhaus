@@ -42,7 +42,7 @@ export function OwnerCard() {
       <div className="relative mt-5 flex flex-col gap-2 sm:flex-row">
         <Button
           href={whatsappLink(
-            `Hola ${owner.name} 👋, vi el sitio de IRONHAUS y quiero asesoría.`,
+            `Hola ${owner.name} 👋, vi el sitio de ${siteConfig.name} y quiero asesoría.`,
           )}
           target="_blank"
           size="sm"

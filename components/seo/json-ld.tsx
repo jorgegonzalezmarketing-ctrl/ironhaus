@@ -39,7 +39,7 @@ export function OrganizationJsonLd() {
       longitude: siteConfig.address.lng,
     },
     areaServed: "CL",
-    sameAs: Object.values(siteConfig.social),
+    sameAs: Object.values(siteConfig.social).filter(Boolean),
   };
   return <JsonLd data={data} />;
 }

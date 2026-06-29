@@ -62,6 +62,10 @@ export interface Product {
   highlights: string[];
   /** Marca productos destacados en la home. */
   featured?: boolean;
+  /** URL de imagen real (Supabase/Cloudinary). Si es null usa el visual generado. */
+  imageUrl?: string | null;
+  /** Visible en la tienda. */
+  active?: boolean;
 }
 
 export interface Testimonial {

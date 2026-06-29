@@ -2,10 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Archivo } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
-import { OrganizationJsonLd } from "@/components/seo/json-ld";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -79,19 +75,7 @@ export default function RootLayout({
       className={`${inter.variable} ${archivo.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col bg-background text-foreground">
-        <OrganizationJsonLd />
-        <a
-          href="#contenido"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-white"
-        >
-          Saltar al contenido
-        </a>
-        <Header />
-        <main id="contenido" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppFab />
+        {children}
       </body>
     </html>
   );

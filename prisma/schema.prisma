@@ -1,0 +1,113 @@
+// Esquema de la base de datos IRONHAUS (PostgreSQL en Supabase).
+// Runtime usa el pooler (DATABASE_URL :6543); migraciones usan DIRECT_URL :5432.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// Usuario con acceso al panel de administración.
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+/// Producto del catálogo (gestionable desde el panel).
+model Product {
+  id               String   @id @default(cuid())
+  sku              String   @unique
+  slug             String   @unique
+  name             String
+  shortDescription String
+  description      String
+  category         String // slug de categoría (estructura fija en código)
+  brand            String // slug de marca
+  price            Int // CLP entero
+  salePrice        Int? // CLP entero (oferta)
+  stock            Int      @default(0)
+  rating           Float    @default(5)
+  reviews          Int      @default(0)
+  badges           String[] @default([])
+  highlights       String[] @default([])
+  relatedIds       String[] @default([])
+  specs            Json     @default("[]")
+  imageUrl         String? // URL de imagen real (Supabase/Cloudinary); si null usa el visual generado
+  featured         Boolean  @default(false)
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([category])
+  @@index([active])
+}
+
+enum OrderStatus {
+  PENDIENTE
+  PAGO_INICIADO
+  PAGO_APROBADO
+  PAGO_RECHAZADO
+  PAGO_CANCELADO
+  PREPARANDO
+  DESPACHADO
+  ENTREGADO
+}
+
+/// Pedido generado en el checkout.
+model Order {
+  id             String      @id @default(cuid())
+  code           String      @unique
+  customerName   String
+  email          String
+  phone          String
+  rut            String?
+  address        String?
+  comuna         String?
+  region         String?
+  shippingMethod String
+  shippingCost   Int         @default(0)
+  subtotal       Int
+  total          Int
+  payMethod      String?
+  status         OrderStatus @default(PENDIENTE)
+  items          OrderItem[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@index([status])
+}
+
+/// Línea de un pedido (copia del producto al momento de la compra).
+model OrderItem {
+  id        String  @id @default(cuid())
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId   String
+  productId String?
+  sku       String
+  name      String
+  price     Int
+  quantity  Int
+}
+
+enum CouponType {
+  PERCENT
+  FIXED
+}
+
+/// Cupón de descuento.
+model Coupon {
+  id        String     @id @default(cuid())
+  code      String     @unique
+  type      CouponType @default(PERCENT)
+  value     Int // % (1-100) o monto fijo CLP
+  active    Boolean    @default(true)
+  expiresAt DateTime?
+  createdAt DateTime   @default(now())
+}

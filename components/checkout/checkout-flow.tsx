@@ -66,8 +66,17 @@ export function CheckoutFlow() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount: total,
+          subtotal,
+          shippingMethod: shipping,
+          shippingCost,
           customer: form,
-          items: items.map((i) => ({ sku: i.sku, qty: i.quantity })),
+          items: items.map((i) => ({
+            productId: i.productId,
+            sku: i.sku,
+            name: i.name,
+            price: i.price,
+            quantity: i.quantity,
+          })),
         }),
       });
       const data = await res.json();

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { categories, getCategory } from "@/lib/data/categories";
-import { getProductsByCategory } from "@/lib/data/products";
+import { getCategory } from "@/lib/data/categories";
+import { getProductsByCategory } from "@/lib/queries";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { CategoryIcon } from "@/components/ui/category-icon";
 
-/** Pre-genera las rutas de categoría en build (SSG → rápido y SEO-friendly). */
-export function generateStaticParams() {
-  return categories.map((c) => ({ categoria: c.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -36,7 +33,7 @@ export default async function CategoriaPage({
   const category = getCategory(categoria);
   if (!category) notFound();
 
-  const items = getProductsByCategory(category.slug);
+  const items = await getProductsByCategory(category.slug);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">

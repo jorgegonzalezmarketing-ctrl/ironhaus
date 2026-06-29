@@ -7,6 +7,9 @@ import { Testimonials } from "@/components/home/testimonials";
 import { FaqSection } from "@/components/home/faq-section";
 import { ContactCta } from "@/components/home/contact-cta";
 
+// La home muestra productos destacados desde la base de datos.
+export const dynamic = "force-dynamic";
+
 export default function HomePage() {
   return (
     <>

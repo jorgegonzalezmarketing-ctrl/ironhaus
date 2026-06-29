@@ -22,6 +22,21 @@ export function ProductImage({
   const category = getCategory(product.category);
   const accent = category?.accent ?? "#f9531f";
 
+  // Si hay una foto real cargada desde el panel, se muestra directamente.
+  if (product.imageUrl) {
+    return (
+      <div className={cn("relative overflow-hidden bg-ink-950", className)}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          loading={priority ? "eager" : "lazy"}
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -30,7 +45,6 @@ export function ProductImage({
       )}
       role="img"
       aria-label={product.name}
-      // priority es semántico aquí; con <Image> real se pasaría como prop.
       data-priority={priority || undefined}
     >
       {/* Glow radial del acento */}

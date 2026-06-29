@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { products } from "@/lib/data/products";
+import { getAllProductSlugs } from "@/lib/queries";
+import { products as fallbackProducts } from "@/lib/data/products";
 import { categories } from "@/lib/data/categories";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
   const now = new Date();
 
@@ -28,8 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const productRoutes = products.map((p) => ({
-    url: `${base}/productos/${p.slug}`,
+  // Productos desde la base de datos; si falla, usa el catálogo de muestra.
+  let slugs: string[];
+  try {
+    slugs = await getAllProductSlugs();
+  } catch {
+    slugs = fallbackProducts.map((p) => p.slug);
+  }
+
+  const productRoutes = slugs.map((slug) => ({
+    url: `${base}/productos/${slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.6,

@@ -1,9 +1,9 @@
-import { getFeaturedProducts } from "@/lib/data/products";
+import { getFeaturedProducts } from "@/lib/queries";
 import { ProductCard } from "@/components/product/product-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function FeaturedProducts() {
-  const featured = getFeaturedProducts();
+export async function FeaturedProducts() {
+  const featured = await getFeaturedProducts();
 
   return (
     <section className="border-y border-border bg-ink-950">

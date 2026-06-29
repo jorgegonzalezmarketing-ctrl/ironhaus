@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { products } from "@/lib/data/products";
+import { getProducts } from "@/lib/queries";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -11,12 +11,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/catalogo" },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function CatalogoPage({
   searchParams,
 }: {
   searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
+  const products = await getProducts();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">

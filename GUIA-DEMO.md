@@ -9,14 +9,13 @@ guíe a Jenny y le explique cómo funciona todo, sin tecnicismos.
 
 | Qué | Dirección |
 |---|---|
-| **Tienda (lo que ven los clientes)** | https://ironhaus-iota.vercel.app |
-| **Panel de administración (solo Jenny)** | https://ironhaus-iota.vercel.app/admin |
+| **Tienda (lo que ven los clientes)** | https://crea-fitness.vercel.app |
+| **Panel de administración (solo Jenny)** | https://crea-fitness.vercel.app/admin |
 | **Usuario del panel** | `hola@creafitness.cl` |
 | **Contraseña del panel** | `creafitness2026` |
 
-> La dirección dice "ironhaus" porque es el nombre técnico temporal. Se cambia a
-> uno con la marca (ej. `crea-fitness.vercel.app`) o un dominio propio
-> `creafitness.cl` cuando Jenny lo decida.
+> Más adelante se puede usar un dominio propio `creafitness.cl` para máxima
+> profesionalidad.
 
 ---
 

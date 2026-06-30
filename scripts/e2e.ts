@@ -6,7 +6,7 @@
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-const SITE = process.env.TEST_SITE ?? "https://ironhaus.vercel.app";
+const SITE = process.env.TEST_SITE ?? "https://crea-fitness.vercel.app";
 
 async function main() {
   const p = await prisma.product.findFirst({

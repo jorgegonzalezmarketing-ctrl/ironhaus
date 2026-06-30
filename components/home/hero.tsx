@@ -1,8 +1,13 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { ArrowRight, ShieldCheck, Truck, Wrench } from "lucide-react";
+import { ArrowRight, ShieldCheck, Truck, Wrench, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const HERO_VIDEO =
+  "https://videos.pexels.com/video-files/5319750/5319750-hd_1280_720_25fps.mp4";
+const HERO_POSTER =
+  "https://images.pexels.com/photos/5411023/pexels-photo-5411023.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
 const trustItems = [
   { icon: Truck, label: "Envío a todo Chile" },
@@ -11,13 +16,13 @@ const trustItems = [
 ];
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 28 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1,
-      duration: 0.6,
+      delay: 0.15 + i * 0.12,
+      duration: 0.7,
       ease: [0.21, 0.5, 0.3, 1] as const,
     },
   }),
@@ -25,104 +30,115 @@ const fadeUp: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      {/* Fondos */}
-      <div className="bg-grid absolute inset-0 opacity-60" />
-      <div className="absolute -top-40 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-brand-600/20 blur-[140px]" />
-      <div className="absolute bottom-0 right-0 h-[360px] w-[360px] rounded-full bg-brand-500/10 blur-[120px]" />
+    <section className="bg-noise relative isolate overflow-hidden bg-ink-950 text-white">
+      {/* Video de fondo */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={HERO_POSTER}
+        aria-hidden="true"
+      >
+        <source src={HERO_VIDEO} type="video/mp4" />
+      </video>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28 lg:py-32">
-        <div className="max-w-3xl">
-          <motion.span
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600 backdrop-blur"
-          >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />
-            Equipamiento profesional de gimnasio · Chile
-          </motion.span>
+      {/* Capas de oscurecimiento (legibilidad + atmósfera cálida) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/30 to-transparent" />
+      <div
+        className="absolute inset-0 opacity-60"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 15% 100%, rgba(249,83,31,0.28) 0%, transparent 55%)",
+        }}
+      />
 
-          <motion.h1
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="font-display mt-6 text-5xl font-black leading-[0.95] tracking-tight md:text-7xl"
-          >
-            Construye un gimnasio
-            <span className="block text-gradient-brand">de nivel mundial.</span>
-          </motion.h1>
-
-          <motion.p
-            custom={2}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="mt-6 max-w-xl text-lg text-ink-300"
-          >
-            Máquinas de musculación, cardio, peso libre y CrossFit de grado
-            comercial. Equipamos gimnasios completos, hoteles y home gyms con
-            despacho a todo el país.
-          </motion.p>
-
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <Button href="/catalogo" size="lg">
-              Comprar ahora
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button href="/cotizar" variant="outline" size="lg">
-              Cotizar mi gimnasio
-            </Button>
-          </motion.div>
-
-          {/* Indicadores de confianza */}
-          <motion.ul
-            custom={4}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="mt-12 flex flex-wrap gap-x-8 gap-y-4"
-          >
-            {trustItems.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-center gap-2 text-sm text-ink-300">
-                <Icon className="h-5 w-5 text-brand-500" />
-                {label}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
-
-        {/* Métricas */}
-        <motion.div
-          custom={5}
+      {/* Contenido */}
+      <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-4 pb-14 pt-36 md:px-6 md:pb-20">
+        <motion.span
+          custom={0}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:max-w-2xl md:grid-cols-4"
+          className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur"
         >
-          {[
-            { n: "+500", l: "Gimnasios equipados" },
-            { n: "7", l: "Marcas premium" },
-            { n: "5 años", l: "Garantía máxima" },
-            { n: "24/7", l: "Uso comercial" },
-          ].map((m) => (
-            <div key={m.l} className="bg-surface px-5 py-6 text-center">
-              <p className="font-display text-2xl font-extrabold text-brand-600 md:text-3xl">
-                {m.n}
-              </p>
-              <p className="mt-1 text-xs text-ink-400">{m.l}</p>
-            </div>
-          ))}
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />
+          Equipamiento profesional de gimnasio · Chile
+        </motion.span>
+
+        <motion.h1
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="font-condensed mt-6 max-w-4xl text-[clamp(2.75rem,9vw,7rem)] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,0.4)]"
+        >
+          Entrena como
+          <span className="block text-brand-500">los profesionales.</span>
+        </motion.h1>
+
+        <motion.p
+          custom={2}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mt-6 max-w-xl text-lg text-white/80"
+        >
+          Máquinas de musculación, cardio, peso libre y CrossFit de grado
+          comercial. Equipamos gimnasios completos, hoteles y home gyms con
+          despacho a todo el país.
+        </motion.p>
+
+        <motion.div
+          custom={3}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mt-9 flex flex-col gap-3 sm:flex-row"
+        >
+          <Button href="/catalogo" size="lg">
+            Comprar ahora
+            <ArrowRight className="h-5 w-5" />
+          </Button>
+          <Button
+            href="/cotizar"
+            variant="outline"
+            size="lg"
+            className="border-white/30 text-white hover:border-white hover:text-white"
+          >
+            Cotizar mi gimnasio
+          </Button>
         </motion.div>
+
+        {/* Franja de confianza */}
+        <motion.ul
+          custom={4}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-6"
+        >
+          {trustItems.map(({ icon: Icon, label }) => (
+            <li key={label} className="flex items-center gap-2 text-sm text-white/85">
+              <Icon className="h-5 w-5 text-brand-500" />
+              {label}
+            </li>
+          ))}
+        </motion.ul>
       </div>
+
+      {/* Indicador de scroll */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 md:block"
+      >
+        <ChevronDown className="h-6 w-6 animate-bounce text-white/50" />
+      </motion.div>
     </section>
   );
 }

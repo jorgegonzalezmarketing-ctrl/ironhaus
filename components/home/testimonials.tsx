@@ -2,6 +2,7 @@ import { Quote } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
 import { StarRating } from "@/components/ui/star-rating";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Testimonials() {
   return (
@@ -13,10 +14,10 @@ export function Testimonials() {
         center
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {testimonials.map((t) => (
+        {testimonials.map((t, i) => (
+          <Reveal key={t.id} delay={i % 4}>
           <figure
-            key={t.id}
-            className="flex flex-col rounded-2xl border border-border bg-surface p-6"
+            className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6"
           >
             <Quote className="h-7 w-7 text-brand-500/60" />
             <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink-200">
@@ -30,6 +31,7 @@ export function Testimonials() {
               </p>
             </figcaption>
           </figure>
+          </Reveal>
         ))}
       </div>
     </section>

@@ -12,6 +12,8 @@
   /* Tipografía */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-archivo), var(--font-inter), sans-serif;
+  /* Display condensado/atlético para titulares de alto impacto */
+  --font-condensed: var(--font-anton), var(--font-archivo), sans-serif;
 
   /* Marca — naranja industrial */
   --color-brand-50: #fff4ed;
@@ -94,6 +96,33 @@ body {
 .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
+}
+
+/* Display condensado atlético (hero, cifras, statements) */
+.font-condensed {
+  font-family: var(--font-condensed);
+  letter-spacing: 0.005em;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+/* Grano sutil para dar textura analógica (anti "render plano") */
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Línea de acento de marca (separadores, eyebrows) */
+.accent-rule {
+  height: 2px;
+  width: 2.5rem;
+  background: linear-gradient(90deg, var(--color-brand-500), transparent);
 }
 
 /* Scrollbar sutil */

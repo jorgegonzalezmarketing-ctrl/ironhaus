@@ -100,16 +100,8 @@ export function Hero() {
           className="mt-9 flex flex-col gap-3 sm:flex-row"
         >
           <Button href="/catalogo" size="lg">
-            Comprar ahora
+            Ver catálogo
             <ArrowRight className="h-5 w-5" />
-          </Button>
-          <Button
-            href="/cotizar"
-            variant="outline"
-            size="lg"
-            className="border-white/30 text-white hover:border-white hover:text-white"
-          >
-            Cotizar mi gimnasio
           </Button>
         </motion.div>
 

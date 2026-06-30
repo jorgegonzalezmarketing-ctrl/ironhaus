@@ -56,8 +56,8 @@ export function Hero() {
         }}
       />
 
-      {/* Contenido */}
-      <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-4 pb-14 pt-36 md:px-6 md:pb-20">
+      {/* Contenido — altura = pantalla menos el header, para que todo quepa */}
+      <div className="relative mx-auto flex min-h-[calc(100svh-9rem)] max-w-7xl flex-col justify-end px-4 pb-10 pt-24 md:px-6 md:pb-12">
         <motion.span
           custom={0}
           variants={fadeUp}
@@ -74,7 +74,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="font-condensed mt-6 max-w-4xl text-[clamp(2.75rem,9vw,7rem)] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,0.4)]"
+          className="font-condensed mt-5 max-w-4xl text-[clamp(2.4rem,6.2vw,5.5rem)] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,0.4)]"
         >
           Entrena como
           <span className="block text-brand-500">los profesionales.</span>
@@ -85,7 +85,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-6 max-w-xl text-lg text-white/80"
+          className="mt-5 max-w-xl text-base text-white/80 md:text-lg"
         >
           Máquinas de musculación, cardio, peso libre y CrossFit de grado
           comercial. Equipamos gimnasios completos, hoteles y home gyms con
@@ -97,7 +97,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-9 flex flex-col gap-3 sm:flex-row"
+          className="mt-7 flex flex-col gap-3 sm:flex-row"
         >
           <Button href="/catalogo" size="lg">
             Ver catálogo
@@ -111,7 +111,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-6"
+          className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5"
         >
           {trustItems.map(({ icon: Icon, label }) => (
             <li key={label} className="flex items-center gap-2 text-sm text-white/85">

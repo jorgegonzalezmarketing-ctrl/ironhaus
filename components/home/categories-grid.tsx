@@ -33,7 +33,7 @@ export function CategoriesGrid() {
           <Reveal key={c.slug} delay={i % 4}>
             <Link
               href={`/catalogo/${c.slug}`}
-              className="group relative flex h-64 flex-col justify-end overflow-hidden rounded-2xl border border-border bg-ink-950 p-5 md:h-72"
+              className="group relative flex h-64 flex-col justify-end overflow-hidden rounded-2xl border border-border bg-night p-5 md:h-72"
             >
               {/* Foto de fondo */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -43,8 +43,8 @@ export function CategoriesGrid() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              {/* Degradado para legibilidad */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-ink-950/5" />
+              {/* Degradado oscuro para legibilidad del texto */}
+              <div className="absolute inset-0 bg-gradient-to-t from-night via-night/60 to-night/10" />
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{

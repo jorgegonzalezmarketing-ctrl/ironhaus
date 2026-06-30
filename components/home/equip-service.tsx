@@ -128,7 +128,7 @@ export function EquipService() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button href="/cotizar" size="lg">
             Solicitar cotización
             <ArrowRight className="h-5 w-5" />
@@ -137,7 +137,7 @@ export function EquipService() {
             href="/equipamos-tu-gimnasio"
             variant="outline"
             size="lg"
-            className="border-white/30 text-white hover:border-white hover:text-white"
+            className="border-white/40 bg-white/5 text-white hover:border-white hover:bg-white/10 hover:text-white"
           >
             Conocer el servicio
           </Button>

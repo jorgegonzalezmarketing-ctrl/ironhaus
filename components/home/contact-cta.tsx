@@ -16,7 +16,7 @@ export function ContactCta() {
             propuesta a medida. Atención personalizada por WhatsApp, correo o
             teléfono — respondemos rápido.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button href="/cotizar" size="lg">
               Cotizar ahora
               <ArrowRight className="h-5 w-5" />

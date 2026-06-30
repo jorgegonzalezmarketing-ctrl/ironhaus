@@ -9,6 +9,8 @@ import {
   Sparkles,
   Check,
   Settings2,
+  Upload,
+  Loader2,
 } from "lucide-react";
 import { categories } from "@/lib/data/categories";
 import { brands } from "@/lib/data/brands";
@@ -36,6 +38,37 @@ function slugify(s: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const i = new Image();
+    i.onload = () => resolve(i);
+    i.onerror = reject;
+    i.src = src;
+  });
+}
+
+/** Recorta cualquier imagen a un cuadrado uniforme (cover) y la devuelve como JPEG. */
+async function resizeToSquare(file: File, size = 1000, quality = 0.85): Promise<Blob> {
+  const img = await loadImage(URL.createObjectURL(file));
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("No se pudo procesar la imagen");
+  const scale = Math.max(size / img.width, size / img.height);
+  const w = img.width * scale;
+  const h = img.height * scale;
+  ctx.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
+  URL.revokeObjectURL(img.src);
+  return new Promise((resolve, reject) =>
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(new Error("Error al generar la imagen"))),
+      "image/jpeg",
+      quality,
+    ),
+  );
+}
+
 export function ProductForm({
   action,
   product,
@@ -50,6 +83,27 @@ export function ProductForm({
   const [name, setName] = useState(product?.name ?? "");
   const [imageUrl, setImageUrl] = useState(product?.imageUrl ?? "");
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+
+  async function handleFile(file: File | undefined) {
+    if (!file) return;
+    setUploadError("");
+    setUploading(true);
+    try {
+      const blob = await resizeToSquare(file);
+      const fd = new FormData();
+      fd.append("file", blob, "foto.jpg");
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "No se pudo subir la foto");
+      setImageUrl(data.url);
+    } catch (e) {
+      setUploadError(e instanceof Error ? e.message : "No se pudo subir la foto");
+    } finally {
+      setUploading(false);
+    }
+  }
 
   // Código (SKU) y enlace (slug): se generan solos a partir del nombre.
   const [skuSuffix] = useState(() => Math.floor(100 + Math.random() * 900));
@@ -203,19 +257,30 @@ export function ProductForm({
       <section className="rounded-2xl border border-border bg-surface p-5 md:p-6">
         <h2 className="mb-1 font-display text-lg font-bold">2 · Foto</h2>
         <p className="mb-5 text-sm text-ink-400">
-          Pega el enlace de una foto y la verás al instante.
+          Sube una foto desde tu computador o celular. Queda lista
+          automáticamente.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-[160px_1fr] sm:items-start">
           {/* Vista previa */}
-          <div className="grid aspect-square w-full place-items-center overflow-hidden rounded-xl border border-border bg-ink-950 sm:w-40">
+          <div className="relative grid aspect-square w-full place-items-center overflow-hidden rounded-xl border border-border bg-ink-950 sm:w-40">
             {imageUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={imageUrl}
-                alt="Vista previa"
-                className="h-full w-full object-cover"
-              />
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imageUrl}
+                  alt="Vista previa"
+                  className="h-full w-full object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => setImageUrl("")}
+                  className="absolute right-1.5 top-1.5 grid h-7 w-7 place-items-center rounded-full bg-night/70 text-white hover:bg-night"
+                  aria-label="Quitar foto"
+                >
+                  <Trash2 className="h-3.5 w-3.5" />
+                </button>
+              </>
             ) : (
               <div className="flex flex-col items-center gap-1 text-ink-500">
                 <Camera className="h-7 w-7" />
@@ -224,21 +289,67 @@ export function ProductForm({
             )}
           </div>
 
-          <div>
-            <label className="block">
-              <span className={labelCls}>Enlace de la foto</span>
+          <div className="space-y-3">
+            {/* Subir desde el dispositivo */}
+            <label
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                handleFile(e.dataTransfer.files?.[0]);
+              }}
+              className={cn(
+                "flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-border bg-ink-950 px-4 py-7 text-center transition-colors hover:border-brand-500",
+                uploading && "pointer-events-none opacity-70",
+              )}
+            >
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                disabled={uploading}
+                onChange={(e) => handleFile(e.target.files?.[0])}
+              />
+              {uploading ? (
+                <>
+                  <Loader2 className="h-6 w-6 animate-spin text-brand-500" />
+                  <span className="text-sm font-medium">Subiendo foto…</span>
+                </>
+              ) : (
+                <>
+                  <Upload className="h-6 w-6 text-brand-500" />
+                  <span className="text-sm font-medium">
+                    Subir foto desde tu dispositivo
+                  </span>
+                  <span className="text-xs text-ink-400">
+                    o arrástrala aquí · JPG o PNG
+                  </span>
+                </>
+              )}
+            </label>
+
+            {uploadError && (
+              <p className="rounded-lg bg-red-500/10 px-3 py-2 text-xs text-red-600">
+                {uploadError}
+              </p>
+            )}
+
+            {/* Alternativa: pegar enlace */}
+            <details className="group">
+              <summary className="cursor-pointer list-none text-xs font-medium text-ink-400 hover:text-foreground">
+                ▸ o pega un enlace de internet
+              </summary>
               <input
                 name="imageUrl"
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
                 placeholder="https://…"
-                className={inputCls}
+                className={`${inputCls} mt-2`}
               />
-            </label>
+            </details>
+
             <p className={helpCls}>
-              💡 ¿Cómo obtener el enlace? En cualquier foto de internet: clic
-              derecho → <em>“Copiar dirección de la imagen”</em> y pégalo aquí.
-              Si lo dejas vacío, se usa una imagen genérica.
+              📐 Todas las fotos se ajustan solas a un cuadrado de 1000×1000, así
+              ninguna queda de distinto tamaño.
             </p>
           </div>
         </div>

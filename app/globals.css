@@ -11,21 +11,26 @@
 @theme {
   /* Tipografía */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-archivo), var(--font-inter), sans-serif;
-  /* Display condensado/atlético para titulares de alto impacto */
-  --font-condensed: var(--font-anton), var(--font-archivo), sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), sans-serif;
+  /* Titulares de alto impacto (mismo Sora, peso máximo + tracking ceñido) */
+  --font-condensed: var(--font-sora), var(--font-inter), sans-serif;
 
   /* Marca — naranja industrial */
-  --color-brand-50: #fff4ed;
-  --color-brand-100: #ffe6d5;
-  --color-brand-200: #fec6aa;
-  --color-brand-300: #fd9d74;
-  --color-brand-400: #fb6a3c;
-  --color-brand-500: #f9531f; /* principal */
-  --color-brand-600: #ea3606;
-  --color-brand-700: #c22507;
-  --color-brand-800: #9a200e;
-  --color-brand-900: #7c1d0f;
+  /* Marca — turquesa / teal */
+  --color-brand-50: #ecfdf7;
+  --color-brand-100: #cffaee;
+  --color-brand-200: #9af3dd;
+  --color-brand-300: #5fe6cc;
+  --color-brand-400: #2dd0b8;
+  --color-brand-500: #0d9488; /* principal */
+  --color-brand-600: #0b7d72;
+  --color-brand-700: #0e6660;
+  --color-brand-800: #115450;
+  --color-brand-900: #114642;
+
+  /* Oscuros reales (para secciones dramáticas — independientes del tema claro) */
+  --color-night: #07140f;
+  --color-night-2: #102420;
 
   /* Neutros cálidos (arena/greige). Escala invertida en luminancia:
      ink-50 = más oscuro · ink-950 = más claro. Así el uso existente
@@ -53,7 +58,7 @@
   --color-border: #e7ddce;
 
   /* Sombras */
-  --shadow-brand: 0 10px 40px -12px rgba(249, 83, 31, 0.35);
+  --shadow-brand: 0 10px 40px -12px rgba(13, 148, 136, 0.4);
   --shadow-card: 0 1px 2px 0 rgba(43, 39, 34, 0.04),
     0 20px 40px -28px rgba(43, 39, 34, 0.25);
 
@@ -98,13 +103,12 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Display condensado atlético (hero, cifras, statements) */
+/* Titulares de alto impacto (no mayúsculas; peso máximo, líneas ceñidas) */
 .font-condensed {
   font-family: var(--font-condensed);
-  letter-spacing: 0.005em;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  line-height: 0.95;
 }
 
 /* Grano sutil para dar textura analógica (anti "render plano") */

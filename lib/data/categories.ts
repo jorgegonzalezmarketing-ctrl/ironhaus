@@ -12,7 +12,7 @@ export const categories: Category[] = [
     description:
       "Trotadoras, elípticas, bicicletas y remos de grado comercial para resistencia y quema calórica.",
     icon: "HeartPulse",
-    accent: "#ea580c",
+    accent: "#0d9488",
   },
   {
     slug: "musculacion",
@@ -21,7 +21,7 @@ export const categories: Category[] = [
     description:
       "Estaciones selectorizadas y de placas para hipertrofia y fuerza guiada con máxima seguridad.",
     icon: "Dumbbell",
-    accent: "#c2410c",
+    accent: "#0891b2",
   },
   {
     slug: "peso-libre",
@@ -30,7 +30,7 @@ export const categories: Category[] = [
     description:
       "Discos, barras olímpicas, mancuernas y bancos para entrenamiento de fuerza sin restricciones.",
     icon: "Weight",
-    accent: "#b45309",
+    accent: "#0e7490",
   },
   {
     slug: "crossfit",
@@ -39,7 +39,7 @@ export const categories: Category[] = [
     description:
       "Racks, jaulas, kettlebells, cajones y todo el equipamiento para box de alto rendimiento.",
     icon: "Flame",
-    accent: "#9a3412",
+    accent: "#14b8a6",
   },
   {
     slug: "accesorios",
@@ -48,7 +48,7 @@ export const categories: Category[] = [
     description:
       "Bandas, cuerdas, agarres, colchonetas y complementos para potenciar cada rutina.",
     icon: "Cable",
-    accent: "#a16207",
+    accent: "#06b6d4",
   },
   {
     slug: "comercial",
@@ -57,7 +57,7 @@ export const categories: Category[] = [
     description:
       "Líneas premium de uso intensivo 24/7 para gimnasios, hoteles y centros deportivos.",
     icon: "Building2",
-    accent: "#7c2d12",
+    accent: "#155e75",
   },
   {
     slug: "home-gym",
@@ -66,7 +66,7 @@ export const categories: Category[] = [
     description:
       "Soluciones compactas y multifuncionales para armar tu gimnasio en casa sin sacrificar calidad.",
     icon: "House",
-    accent: "#d97706",
+    accent: "#2dd4bf",
   },
 ];
 

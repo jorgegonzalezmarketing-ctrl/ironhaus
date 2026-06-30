@@ -20,7 +20,7 @@ export function ProductImage({
   priority?: boolean;
 }) {
   const category = getCategory(product.category);
-  const accent = category?.accent ?? "#f9531f";
+  const accent = category?.accent ?? "#0d9488";
 
   // Si hay una foto real cargada desde el panel, se muestra directamente.
   if (product.imageUrl) {

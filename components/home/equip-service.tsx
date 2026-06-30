@@ -47,21 +47,21 @@ const steps = [
 
 export function EquipService() {
   return (
-    <section className="bg-noise relative isolate overflow-hidden bg-ink-950 text-white">
+    <section className="bg-noise relative isolate overflow-hidden bg-night text-white">
       {/* Foto de fondo + capas */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={BG}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        className="absolute inset-0 h-full w-full object-cover opacity-25"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-950/85 to-ink-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-night via-night/90 to-night" />
       <div
-        className="absolute inset-0 opacity-70"
+        className="absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(90% 60% at 85% 10%, rgba(249,83,31,0.22) 0%, transparent 55%)",
+            "radial-gradient(90% 60% at 85% 10%, rgba(45,208,184,0.18) 0%, transparent 55%)",
         }}
       />
 
@@ -84,11 +84,11 @@ export function EquipService() {
         <Reveal delay={1}>
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.l} className="bg-ink-950/60 px-5 py-6 text-center backdrop-blur">
-                <p className="font-condensed text-3xl text-brand-500 md:text-4xl">
+              <div key={s.l} className="bg-night-2/80 px-5 py-6 text-center backdrop-blur">
+                <p className="font-condensed text-3xl text-brand-400 md:text-4xl">
                   {s.n}
                 </p>
-                <p className="mt-1 text-xs text-white/60">{s.l}</p>
+                <p className="mt-1 text-xs text-white/65">{s.l}</p>
               </div>
             ))}
           </div>
@@ -115,14 +115,14 @@ export function EquipService() {
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                <span className="font-condensed text-4xl text-brand-500/50">
+              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.07] p-6 backdrop-blur">
+                <span className="font-condensed text-4xl text-brand-400">
                   {s.n}
                 </span>
                 <h3 className="mt-3 font-display text-lg font-bold text-white">
                   {s.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65">{s.desc}</p>
+                <p className="mt-2 text-sm text-white/70">{s.desc}</p>
               </div>
             </Reveal>
           ))}

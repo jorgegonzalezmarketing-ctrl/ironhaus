@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Archivo, Anton } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 
@@ -9,19 +9,12 @@ const inter = Inter({
   display: "swap",
 });
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Display moderno y refinado para titulares y cifras.
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   display: "swap",
-  weight: ["600", "700", "800", "900"],
-});
-
-// Display atlético/condensado para titulares de alto impacto (hero, cifras).
-const anton = Anton({
-  variable: "--font-anton",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -80,7 +73,7 @@ export default function RootLayout({
     <html
       lang="es-CL"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${archivo.variable} ${anton.variable} antialiased`}
+      className={`${inter.variable} ${sora.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col bg-background text-foreground">
         {children}

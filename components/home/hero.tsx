@@ -30,7 +30,7 @@ const fadeUp: Variants = {
 
 export function Hero() {
   return (
-    <section className="bg-noise relative isolate overflow-hidden bg-ink-950 text-white">
+    <section className="bg-noise relative isolate overflow-hidden bg-night text-white">
       {/* Video de fondo */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -45,14 +45,14 @@ export function Hero() {
         <source src={HERO_VIDEO} type="video/mp4" />
       </video>
 
-      {/* Capas de oscurecimiento (legibilidad + atmósfera cálida) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/30 to-transparent" />
+      {/* Capas de oscurecimiento (legibilidad + atmósfera) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-night via-night/65 to-night/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-night/90 via-night/40 to-transparent" />
       <div
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-70"
         style={{
           background:
-            "radial-gradient(120% 80% at 15% 100%, rgba(249,83,31,0.28) 0%, transparent 55%)",
+            "radial-gradient(120% 80% at 12% 100%, rgba(45,208,184,0.22) 0%, transparent 55%)",
         }}
       />
 

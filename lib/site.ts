@@ -11,7 +11,7 @@ export const siteConfig = {
   description:
     "Venta de maquinaria de gimnasio en Chile: máquinas de musculación, cardio, CrossFit, peso libre y equipamiento comercial. Equipamos gimnasios completos con despacho a todo el país.",
   // URL canónica de producción (deploy actual en Vercel).
-  url: "https://ironhaus.vercel.app",
+  url: "https://ironhaus-iota.vercel.app",
   locale: "es_CL",
   currency: "CLP",
   // Contacto — PLACEHOLDERS: reemplazar con los datos reales de Crea Fitness.

@@ -8,6 +8,7 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { products } from "../lib/data/products";
+import { productImages } from "../lib/data/product-images";
 
 const prisma = new PrismaClient();
 
@@ -47,6 +48,7 @@ async function main() {
         highlights: p.highlights,
         relatedIds: p.relatedIds,
         specs: p.specs,
+        imageUrl: productImages[p.id] ?? null,
         featured: p.featured ?? false,
         active: true,
       },

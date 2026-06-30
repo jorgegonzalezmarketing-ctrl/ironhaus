@@ -2,7 +2,9 @@
 // Runtime usa el pooler (DATABASE_URL :6543); migraciones usan DIRECT_URL :5432.
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  // "native" para local; "rhel-openssl-3.0.x" para el runtime de Vercel (Amazon Linux / Node 20+).
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {

@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Mantiene Prisma fuera del bundle para que el motor se resuelva en runtime
+  // (evita errores de "Query engine not found" en serverless de Vercel).
+  serverExternalPackages: ["@prisma/client", "prisma"],
   images: {
     // Formatos modernos para mejores Core Web Vitals.
     formats: ["image/avif", "image/webp"],
